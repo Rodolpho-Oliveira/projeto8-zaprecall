@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState } from "react"
 import Menu from "./Menu"
+import Header from "./Header"
+import Footer from "./Footer"
 export default function Home(){
     const [screen, setScreen] = useState(false)
     return(
@@ -13,7 +15,9 @@ export default function Home(){
                     <button onClick={() => setScreen(!screen)} className="start-button">Iniciar Recall!</button>
                 </div> 
             </div>
+            {screen ? <Header /> : null}
            {screen ? <Menu /> : null}
+           {screen ? <Footer completed={0}/> : null}
         </>
     )
 }
