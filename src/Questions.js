@@ -3,8 +3,7 @@ export default function Questions(props){
     const [color, setColor] = useState(false)
     const [answers, setAnswers] = useState(false)
     const [questions, setQuestions] = useState(false)
-    const [footer, setFooter] = useState(false)
-    const {number, question, answer} = props
+    const {number, question, answer, setAnsweredQuestion, answeredQuestion} = props
     return(
         <>
         <div>
@@ -17,13 +16,13 @@ export default function Questions(props){
                 {color === "red-line" ? <ion-icon name="close-circle"></ion-icon> : null}
             </div>
             <div className={answers === false && questions ? "question" : "hide"}>
-                <p>{question}</p>
+                <p className="question-p">{question}</p>
                 <div>
-                    <img onClick={() => setAnswers(!answers)} className={answers ? "hide" : "arrow"} src="./sources/setinha.png" />
+                    <img alt="seta" onClick={() => setAnswers(!answers)} className={answers ? "hide" : "arrow"} src="./sources/setinha.png" />
                 </div>
             </div>
             <div className={answers && questions ? "question answer" : "hide"}>
-                <p className="question-p">{answer}</p>
+                <p className="answer-p">{answer}</p>
                 <div className="answers">
                     <p onClick={() => ShowAnswer("red-line")}  className={questions ?" answer-box red" : "hide"} >Não lembrei</p>
                     <p onClick={() => ShowAnswer("yellow-line")} className={questions ?" answer-box yellow" : "hide"}>Quase não lembrei</p>
@@ -36,5 +35,6 @@ export default function Questions(props){
     function ShowAnswer(colors){
         setQuestions(false)
         setColor(colors)
+        setAnsweredQuestion(answeredQuestion+1)
     }
 }

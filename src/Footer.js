@@ -1,9 +1,10 @@
-import Questions from "./Questions"
 export default function Footer(props){
+    const {answeredQuestion} = props
     return(
         <>
             <div className="finished-questions">
-                <p>{props.completed}/4 CONCLUÍDOS</p>
+                {answeredQuestion === 8 ? <><p>Parabéns!</p> <img src="./sources/party.png" /> <p>Você não esqueceu de<br/> nenhum flashcard!</p></>: null}
+                <p>{answeredQuestion}/8 CONCLUÍDOS</p>
             </div>
         </>
     )

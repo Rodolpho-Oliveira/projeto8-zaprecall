@@ -4,6 +4,7 @@ import Header from "./Header"
 import Footer from "./Footer"
 export default function Home(){
     const [screen, setScreen] = useState(false)
+    const [answeredQuestion, setAnsweredQuestion] = useState(0)
     return(
         <>
             <div className={screen ? "hide" : null}>
@@ -16,8 +17,8 @@ export default function Home(){
                 </div> 
             </div>
             {screen ? <Header /> : null}
-           {screen ? <Menu /> : null}
-           {screen ? <Footer completed={0}/> : null}
+            {screen ? <Menu answeredQuestion={answeredQuestion} setAnsweredQuestion={setAnsweredQuestion}/> : null}
+            {screen ? <Footer answeredQuestion={answeredQuestion}/> : null}
         </>
     )
 }
