@@ -222,4 +222,8 @@ ion-icon {
     .question {
         width: 45vw;
     }
+
+    .start-button{
+        width: 45vw;
+    }
 }
