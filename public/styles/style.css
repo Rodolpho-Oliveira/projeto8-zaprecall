@@ -214,3 +214,12 @@ body {
 ion-icon {
     font-size: 32px;
 }
+
+@media (min-width: 1250px) {
+    .question-number{
+        width: 45vw;
+    }
+    .question {
+        width: 45vw;
+    }
+}
